@@ -23,7 +23,7 @@
   },
   "scripts": {
     "start": "node dist/index",
-    "watch": "node dist/watch",
+    "start:watch": "node dist/watch",
     "build": "tsc",
     "dev": "ts-node-dev --no-notify --respawn --transpile-only src/watch"
   },

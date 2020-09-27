@@ -8,6 +8,7 @@
     "sourceMap": true,
     "outDir": "dist",
     "baseUrl": ".",
+    // "skipLibCheck": true,
     "paths": {
       "*": [
         "node_modules/*",
@@ -22,10 +23,14 @@
     "strictFunctionTypes": true,
     // "strictBindCallApply": true,
     "lib": [
-      "es6"
-    ]
+      "es2018",
+      "dom"
+    ],
   },
   "include": [
     "src/**/*"
+  ],
+  "exclude": [
+    "src/index.ts"
   ]
 }

@@ -66,8 +66,8 @@ const scan = async () => {
 
     const hit = await el.$$eval('a', arr => {
       return arr.reduce((hit, el) => {
-        if (!['javascript:void(0)', '#'].some(str => el.href.toLowerCase().includes(str))) return hit;
-        if (['se alle', 'giv mig', 'udsolgt'].some(str => el.innerText.toLowerCase().includes(str))) return hit;
+        if (!['javascript:void(0)', '#'].some(str => (el as any).href.toLowerCase().includes(str))) return hit;
+        if (['se alle', 'giv mig', 'udsolgt'].some(str => (el as any).innerText.toLowerCase().includes(str))) return hit;
         return true;
       }, false)
     });
@@ -94,6 +94,7 @@ const scan = async () => {
 
 const hitExpire = 43200000;
 let lastProductHits: { [key: string]: number } = {};
+
 
 setInterval(async () => {
   try {
