@@ -1,0 +1,11 @@
+[
+  { "name": "Action", "value": "PlaceRequisition" },
+  { "name": "SiteID", "value": "nvidia" },
+  { "name": "Locale", "value": "en_GB" },
+  { "name": "ThemeID", "value": "326200" },
+  { "name": "CallingPageID", "value": "ConfirmOrderPage" },
+  { "name": "Env", "value": "BASE" },
+  { "name": "shippingMessage", "value": "" },
+  { "name": "shipMethod", "value": "27117600" },
+  { "name": "", "value": "submit" }
+]
