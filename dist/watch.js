@@ -16,6 +16,18 @@ const puppeteer_1 = __importDefault(require("puppeteer"));
 const nodemailer_1 = __importDefault(require("nodemailer"));
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
+if (!process.env.EMAIL_USER) {
+    console.error("Missing env 'EMAIL_USER'!");
+    process.exit(1);
+}
+if (!process.env.EMAIL_PASSWORD) {
+    console.error("Missing env 'EMAIL_PASSWORD'!");
+    process.exit(1);
+}
+if (!process.env.EMAIL_LIST) {
+    console.error("Missing env 'EMAIL_LIST'!");
+    process.exit(1);
+}
 const transporter = nodemailer_1.default.createTransport({
     service: 'gmail',
     auth: {
@@ -113,6 +125,7 @@ setInterval(() => __awaiter(void 0, void 0, void 0, function* () {
         });
     }
     catch (err) {
+        console.error(err);
         console.log('Check cycle failed');
     }
 }), scanRate);

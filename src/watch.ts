@@ -3,6 +3,21 @@ import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
 dotenv.config();
 
+if (!process.env.EMAIL_USER) {
+  console.error("Missing env 'EMAIL_USER'!");
+  process.exit(1);
+}
+
+if (!process.env.EMAIL_PASSWORD) {
+  console.error("Missing env 'EMAIL_PASSWORD'!");
+  process.exit(1);
+}
+
+if (!process.env.EMAIL_LIST) {
+  console.error("Missing env 'EMAIL_LIST'!");
+  process.exit(1);
+}
+
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
@@ -34,7 +49,7 @@ const scan = async () => {
   const browser = await puppeteer.launch({
     headless: true,
     timeout,
-    args: ['--disable-web-security'],
+    args: ['--disable-web-security', '--no-sandbox'],
     defaultViewport: { width: 1200, height: 900}
   });
 
@@ -117,6 +132,7 @@ setInterval(async () => {
     })
 
   } catch(err) {
+    console.error(err);
     console.log('Check cycle failed');
   }
 }, scanRate);
